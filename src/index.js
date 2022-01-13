@@ -1,7 +1,7 @@
 'use strict';
 
-import iAmFirst from './modules/one';
-import iAmTheSecond from './modules/two';
+import timer from './modules/one';
+//import iAmTheSecond from './modules/two';
 
-iAmFirst();
-iAmTheSecond();
+timer('16 january 2022 22:06:00');
+//iAmTheSecond();
