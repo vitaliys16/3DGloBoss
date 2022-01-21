@@ -14,13 +14,13 @@ const calc = (price = 100) => {
         }
         let interval = setInterval(() => {
             n = n + (num / 10);
-            console.log('Считаю');
+            //console.log('Считаю');
             if (n == num) {
                 clearInterval(interval);
-                console.log('Stop');
+                //console.log('Stop');
             } else if (n > num) {
                 clearInterval(interval);
-                console.log('Stop');
+                //console.log('Stop');
             }
             i.innerHTML = n;
         }, 50);
