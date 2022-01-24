@@ -1,3 +1,5 @@
+import  {animate} from './helpers';
+
 const calc = (price = 100) => {
     const calcBlock = document.querySelector('.calc-block');
     const calcType = document.querySelector('.calc-type');
@@ -6,24 +8,19 @@ const calc = (price = 100) => {
     const calcDay = document.querySelector('.calc-day');
     const total = document.getElementById('total');
 
-    let animationOutNum = (num, elem) => {
-        let i = document.getElementById(elem);
-        let n = 0;
-        if (n > 0) {
-            n = n;
-        }
-        let interval = setInterval(() => {
-            n = n + (num / 10);
-            //console.log('Считаю');
-            if (n == num) {
-                clearInterval(interval);
-                //console.log('Stop');
-            } else if (n > num) {
-                clearInterval(interval);
-                //console.log('Stop');
+ 
+    const animateCalc = (num, elem) => {
+        animate({
+            duration: 500,
+            timing(timeFraction) {
+                //return timeFraction;
+                return 1 - Math.sin(Math.acos(timeFraction));
+            },
+            draw(progress) {
+                let i = document.getElementById(elem);
+                i.textContent = Math.round(num * progress);
             }
-            i.innerHTML = n;
-        }, 50);
+        });
     };
 
     const countCalc = () => {
@@ -52,7 +49,8 @@ const calc = (price = 100) => {
         }
         total.textContent = totalValue;
 
-        animationOutNum(totalValue, 'total');
+        //animationOutNum(totalValue, 'total');
+        animateCalc(totalValue, 'total');
     };
 
     calcBlock.addEventListener('input', (e) => {
@@ -63,6 +61,13 @@ const calc = (price = 100) => {
             countCalc();
         }
     });
+
+    calcType.addEventListener('input', () => { //обнуление инпутов при изменения селекта
+        calcSquare.value = "";
+        calcCount.value = "";
+        calcDay.value = "";
+    });
+    
 };
 
 export default calc;

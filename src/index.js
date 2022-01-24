@@ -8,7 +8,7 @@ import tabs from './modules/tabs';
 import slider from './modules/slider';
 import calc from './modules/calc';
 
-timer('23 january 2022 22:06:00');
+timer('27 january 2022 22:06:00');
 menu();
 modal();
 validation();

@@ -1,3 +1,5 @@
+import  {animate} from './helpers';
+
 const modal = () => {
     const modal = document.querySelector('.popup');
     const buttons = document.querySelectorAll('.popup-btn');
@@ -7,15 +9,16 @@ const modal = () => {
             modal.style.display = 'block';
 
             if (window.innerWidth > 767) {
-                let number = 0;
                 modal.style.opacity = 0;
-                let animation = setInterval(() => {
-                    number = number + 0.05;
-                    modal.style.opacity = number;
-                    if (number > 1) {
-                        clearInterval(animation);
+                animate({
+                    duration: 500,
+                    timing(timeFraction) {
+                        return timeFraction;
+                    },
+                    draw(progress) {
+                        modal.style.opacity = progress;
                     }
-                }, 10);
+                });
             } else {
                 modal.style.opacity = 1;
             }
