@@ -63,9 +63,11 @@ const calc = (price = 100) => {
     });
 
     calcType.addEventListener('input', () => { //обнуление инпутов при изменения селекта
-        calcSquare.value = "";
-        calcCount.value = "";
-        calcDay.value = "";
+        if (calcType.options[calcType.selectedIndex].value == 0) {
+            calcSquare.value = "";
+            calcCount.value = "";
+            calcDay.value = "";
+        }
     });
     
 };
