@@ -22,7 +22,7 @@ const validation = () => {
         e.target.value = e.target.value.replace(/[^a-zA-Z0-9@\-_.!~*']/, "");   
     };
     let validPhone = function(e) {
-        e.target.value = e.target.value.replace(/[^0-9()-]/, "");   
+        e.target.value = e.target.value.replace(/[^0-9()-+]/, "");   
     };
 
     calcSquare.addEventListener('input', validNumber);
