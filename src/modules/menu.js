@@ -1,6 +1,10 @@
 const menu = () => {
     const body = document.querySelector('body');
     const menu = document.querySelector('menu');
+    let closeBtn = document.querySelector('.close-btn');
+    closeBtn.addEventListener('click', (e) =>{
+        e.preventDefault();
+    });
 
     body.addEventListener('click', (e) => {
         const handleMenu = () => {
